@@ -34,8 +34,8 @@
     "html-webpack-plugin": "^5.3.2",
     "mini-css-extract-plugin": "^2.2.0",
     "postcss-loader": "^6.1.1",
-    "pug": "^3.0.2",
-    "pug-load": "^3.0.0",
+    "pug": "^2.0.4",
+    "pug-loader": "^2.4.0",
     "regenerator-runtime": "^0.13.9",
     "sass": "^1.38.1",
     "sass-loader": "^12.1.0",
@@ -44,7 +44,6 @@
     "webpack-dev-server": "^4.0.0"
   },
   "dependencies": {
-    "@babel/polyfill": "^7.12.1",
     "normalize.css": "^8.0.1"
   }
 }

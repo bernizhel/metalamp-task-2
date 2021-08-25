@@ -1,4 +1,10 @@
-import "core-js/stable";
-import "regenerator-runtime/runtime";
+import 'core-js/core';
+import 'regenerator-runtime/runtime';
 import 'normalize.css';
-import './common.blocks/color/color.scss';
+import './styles/globals.scss';
+
+import './common.blocks/color';
+import './common.blocks/heading1';
+import './common.blocks/heading2';
+import './common.blocks/heading3';
+import './common.blocks/paragraph';
