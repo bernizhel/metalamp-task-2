@@ -1,6 +1,6 @@
 const path = require('path');
 const fs = require('fs');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const TerserWebpackPlugin = require('terser-webpack-plugin');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const MiniCSSExtractPlugin = require('mini-css-extract-plugin');
 const ESLintWebpackPlugin = require('eslint-webpack-plugin');
@@ -21,7 +21,7 @@ function getPugFiles(pugPath) {
             fs.statSync(absSubpath).isFile() &&
             absSubpath.match(/\.pug$/)
         ) {
-            pugFiles.push(path.relative(PATHS.pages, absSubpath));
+            pugFiles.push(path.relative(pugPath, absSubpath));
         }
     });
     return pugFiles;
@@ -44,7 +44,14 @@ const postcssPlugins = () => {
 const CSSLoaders = (...additional) => {
     const loaders = [
         MiniCSSExtractPlugin.loader,
-        'css-loader',
+        {
+            loader: 'css-loader',
+            options: {
+                url: true,
+                import: true,
+                sourceMap: isDev,
+            },
+        },
         {
             loader: 'postcss-loader',
             options: {
@@ -62,7 +69,6 @@ const CSSLoaders = (...additional) => {
 
 const pluginsInvolvment = () => {
     let plugins = [
-        new CleanWebpackPlugin(),
         new MiniCSSExtractPlugin({
             filename: filename('css'),
         }),
@@ -74,7 +80,6 @@ const pluginsInvolvment = () => {
                         PATHS.output,
                         path.basename(page).replace(/\.pug$/, '.html'),
                     ),
-                    inject: 'body',
                 }),
         ),
     ];
@@ -84,23 +89,42 @@ const pluginsInvolvment = () => {
     return plugins;
 };
 
-const filename = (ext) =>
+const minimizerOptions = () => {
+    const opts = [];
+    if (!isDev) {
+        opts.push(new TerserWebpackPlugin());
+    }
+    return opts;
+};
+
+const filename = (ext = '[ext]') =>
     !isDev ? `[name].[contenthash].${ext}` : `[name].${ext}`;
 
 module.exports = {
     context: PATHS.source,
+    mode: process.env.NODE_ENV || 'development',
     entry: {
         main: './index.js',
     },
     output: {
         filename: filename('js'),
         path: PATHS.output,
-        publicPath: '/',
+        publicPath: '',
+        clean: true,
+    },
+    resolve: {
+        roots: [PATHS.source],
+        extensions: ['', '.js', '.json'],
+        alias: {
+            c: path.join(PATHS.source, 'common.blocks'),
+            img: path.join(PATHS.source, 'img'),
+        },
     },
     optimization: {
         splitChunks: {
             chunks: 'all',
         },
+        minimizer: minimizerOptions(),
     },
     target: isDev ? 'web' : 'browserslist',
     devServer: {
@@ -118,7 +142,14 @@ module.exports = {
             },
             {
                 test: /\.pug$/,
-                use: ['pug-loader'],
+                use: [
+                    {
+                        loader: 'pug-loader',
+                        options: {
+                            pretty: isDev,
+                        },
+                    },
+                ],
             },
             {
                 test: /\.css$/,
@@ -129,11 +160,15 @@ module.exports = {
                 use: CSSLoaders('sass-loader'),
             },
             {
-                test: /\.(png|jpe?g|gif)$/,
-                use: ['file-loader'],
+                test: /\.(jpe?g|png|gif|svg)$/i,
+                use: [
+                    {
+                        loader: 'url-loader'
+                    },
+                ],
             },
             {
-                test: /\.([ot]tf|woff2?|eot|svg)$/,
+                test: /\.([ot]tf|woff2?|eot|svg)$/i,
                 use: ['file-loader'],
             },
         ],

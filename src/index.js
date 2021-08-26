@@ -1,10 +1,12 @@
 import 'core-js/core';
 import 'regenerator-runtime/runtime';
 import 'normalize.css';
+import './fonts/Montserrat-Regular.woff';
+import './fonts/Montserrat-Bold.woff';
 import './styles/globals.scss';
 
-import './common.blocks/color';
-import './common.blocks/heading1';
-import './common.blocks/heading2';
-import './common.blocks/heading3';
-import './common.blocks/paragraph';
+import 'c/color';
+import 'c/heading1';
+import 'c/heading2';
+import 'c/heading3';
+import 'c/paragraph';

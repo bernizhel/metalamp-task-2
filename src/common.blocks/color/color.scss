@@ -1,6 +1,7 @@
-.color {
-    font-family: 'Montserrat';
-    font-weight: 400;
-    color: #fff;
-    background: linear-gradient(to left, crimson, orange);
+.color__palette {
+    color: #ddd;
+    background: linear-gradient(to bottom, crimson, orange);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
