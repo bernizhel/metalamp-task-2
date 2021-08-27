@@ -8,7 +8,6 @@ const ESLintWebpackPlugin = require('eslint-webpack-plugin');
 const PATHS = {
     source: path.resolve(__dirname, 'src'),
     output: path.resolve(__dirname, 'public'),
-    pages: path.resolve(__dirname, 'src', 'pages'),
 };
 
 function getPugFiles(pugPath) {
@@ -21,13 +20,13 @@ function getPugFiles(pugPath) {
             fs.statSync(absSubpath).isFile() &&
             absSubpath.match(/\.pug$/)
         ) {
-            pugFiles.push(path.relative(pugPath, absSubpath));
+            pugFiles.push(path.relative(PATHS.source, absSubpath));
         }
     });
     return pugFiles;
 }
 
-const PAGES = getPugFiles(PATHS.pages);
+const PAGES = getPugFiles(path.resolve(PATHS.source, 'pages'));
 
 const isDev =
     process.env.NODE_ENV === 'development' ||
@@ -44,14 +43,7 @@ const postcssPlugins = () => {
 const CSSLoaders = (...additional) => {
     const loaders = [
         MiniCSSExtractPlugin.loader,
-        {
-            loader: 'css-loader',
-            options: {
-                url: true,
-                import: true,
-                sourceMap: isDev,
-            },
-        },
+        'css-loader',
         {
             loader: 'postcss-loader',
             options: {
@@ -69,19 +61,16 @@ const CSSLoaders = (...additional) => {
 
 const pluginsInvolvment = () => {
     let plugins = [
-        new MiniCSSExtractPlugin({
-            filename: filename('css'),
-        }),
         ...PAGES.map(
             (page) =>
                 new HTMLWebpackPlugin({
-                    template: path.resolve(PATHS.pages, page),
-                    filename: path.resolve(
-                        PATHS.output,
-                        path.basename(page).replace(/\.pug$/, '.html'),
-                    ),
+                    template: page,
+                    filename: path.basename(page).replace(/\.pug$/, '.html'),
                 }),
         ),
+        new MiniCSSExtractPlugin({
+            filename: filename('css'),
+        }),
     ];
     if (isDev) {
         plugins.push(new ESLintWebpackPlugin());
@@ -89,59 +78,50 @@ const pluginsInvolvment = () => {
     return plugins;
 };
 
-const minimizerOptions = () => {
-    const opts = [];
-    if (!isDev) {
-        opts.push(new TerserWebpackPlugin());
-    }
-    return opts;
-};
-
 const filename = (ext = '[ext]') =>
     !isDev ? `[name].[contenthash].${ext}` : `[name].${ext}`;
 
 module.exports = {
     context: PATHS.source,
-    mode: process.env.NODE_ENV || 'development',
     entry: {
         main: './index.js',
     },
     output: {
         filename: filename('js'),
         path: PATHS.output,
-        publicPath: '',
         clean: true,
+        assetModuleFilename: '[contenthash][ext]',
     },
     resolve: {
-        roots: [PATHS.source],
-        extensions: ['', '.js', '.json'],
+        extensions: ['.js', '.json'],
         alias: {
-            c: path.join(PATHS.source, 'common.blocks'),
-            img: path.join(PATHS.source, 'img'),
+            fonts: path.resolve(PATHS.source, 'fonts'),
+            img: path.resolve(PATHS.source, 'img'),
+            c: path.resolve(PATHS.source, 'common.blocks'),
         },
     },
     optimization: {
         splitChunks: {
             chunks: 'all',
         },
-        minimizer: minimizerOptions(),
+        minimizer: [new TerserWebpackPlugin()],
     },
     target: isDev ? 'web' : 'browserslist',
+    devtool: isDev ? 'source-map' : false,
     devServer: {
         open: true,
         port: 3000,
     },
-    devtool: isDev ? 'source-map' : false,
     plugins: pluginsInvolvment(),
     module: {
         rules: [
             {
-                test: /\.js$/,
+                test: /\.js$/i,
                 exclude: /node_modules/,
                 use: ['babel-loader'],
             },
             {
-                test: /\.pug$/,
+                test: /\.pug$/i,
                 use: [
                     {
                         loader: 'pug-loader',
@@ -152,24 +132,26 @@ module.exports = {
                 ],
             },
             {
-                test: /\.css$/,
+                test: /\.css$/i,
                 use: CSSLoaders(),
             },
             {
-                test: /\.s[ac]ss$/,
+                test: /\.s[ac]ss$/i,
                 use: CSSLoaders('sass-loader'),
             },
             {
-                test: /\.(jpe?g|png|gif|svg)$/i,
-                use: [
-                    {
-                        loader: 'url-loader'
-                    },
-                ],
+                test: /\.(jp[e]?g|png|gif|svg|[ot]tf|woff[2]?|eot)$/i,
+                type: 'asset/resource',
             },
             {
-                test: /\.([ot]tf|woff2?|eot|svg)$/i,
-                use: ['file-loader'],
+                test: /\.svg$/,
+                use: ['svgo-loader'],
+                type: 'asset/resource',
+            },
+            {
+                test: /\.woff[2]?$/,
+                issuer: path.resolve(PATHS.source, 'styles', 'globals.scss'),
+                type: 'asset/inline',
             },
         ],
     },
