@@ -1,12 +1,10 @@
+// babel
 import 'core-js/core';
 import 'regenerator-runtime/runtime';
+
+// globals
 import 'normalize.css';
-import './fonts/Montserrat-Regular.woff';
-import './fonts/Montserrat-Bold.woff';
 import './styles/globals.scss';
 
+// components' styles
 import 'c/color';
-import 'c/heading1';
-import 'c/heading2';
-import 'c/heading3';
-import 'c/paragraph';
