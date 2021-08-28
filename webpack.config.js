@@ -8,6 +8,7 @@ const ESLintWebpackPlugin = require('eslint-webpack-plugin');
 const PATHS = {
     source: path.resolve(__dirname, 'src'),
     output: path.resolve(__dirname, 'public'),
+    common: path.resolve(__dirname, 'src', 'common.blocks'),
 };
 
 function getPugFiles(pugPath) {
@@ -97,7 +98,7 @@ module.exports = {
         alias: {
             fonts: path.resolve(PATHS.source, 'fonts'),
             img: path.resolve(PATHS.source, 'img'),
-            c: path.resolve(PATHS.source, 'common.blocks'),
+            c: path.resolve(PATHS.common),
         },
     },
     optimization: {
@@ -123,10 +124,14 @@ module.exports = {
             {
                 test: /\.pug$/i,
                 use: [
+                    // "If there is no way for un-trusted input to be passed to pug as the pretty option,
+                    // e.g. if you compile templates in advance before applying user input to them, you do not need to upgrade."
+                    // from https://www.npmjs.com/advisories/1643
                     {
                         loader: 'pug-loader',
                         options: {
                             pretty: isDev,
+                            root: PATHS.common,
                         },
                     },
                 ],
@@ -140,16 +145,16 @@ module.exports = {
                 use: CSSLoaders('sass-loader'),
             },
             {
-                test: /\.(jp[e]?g|png|gif|svg|[ot]tf|woff[2]?|eot)$/i,
+                test: /\.(jp[e]?g|png|gif|[ot]tf|woff[2]?|eot)$/i,
                 type: 'asset/resource',
             },
             {
-                test: /\.svg$/,
+                test: /\.svg$/i,
                 use: ['svgo-loader'],
                 type: 'asset/resource',
             },
             {
-                test: /\.woff[2]?$/,
+                test: /\.woff?$/i,
                 issuer: path.resolve(PATHS.source, 'styles', 'globals.scss'),
                 type: 'asset/inline',
             },
