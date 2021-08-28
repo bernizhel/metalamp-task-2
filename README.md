@@ -8,7 +8,7 @@ Markup the layout with a design to pass the second task from MetaLamp education 
 
 ## Installation
 
--   node.js version: (16.8.0)[https://nodejs.org/en/download/current/]
+-   node.js version: [16.8.0](https://nodejs.org/en/download/current/)
 -   npm version: 7.19.1
 -   Use the following to clone this repository:
 
