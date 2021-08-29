@@ -7,4 +7,4 @@ import 'normalize.css';
 import './styles/globals.scss';
 
 // components' styles
-import 'c/palette';
+import 'c/color';
