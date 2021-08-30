@@ -1,13 +1,14 @@
-include /color/color    
--
-    const colors = [
-        {class: 'dark-shade-100', name: 'Dark Shade 100%', hex: '#1F2041'},
-        {class: 'dark-shade-75', name: 'Dark Shade 75%', hex: '#1F2041'},
-        {class: 'dark-shade-50', name: 'Dark Shade 50%', hex: '#1F2041'},
-        {class: 'dark-shade-25', name: 'Dark Shade 25%', hex: '#1F2041'},
-        {class: 'dark-shade-5', name: 'Dark Shade 5%', hex: '#1F2041'},
-        {class: 'purple', name: 'Purple', hex: '#BC9CFF'},
-        {class: 'green', name: 'Green', hex: '#6FCF97'},
-    ];
-each c in colors
-    +color(c.class, c.name, c.hex)
+.palette
+    include /color/color
+    -
+        const colors = [
+            {class: 'dark-shade-100', name: 'Dark Shade 100%', hex: '#1F2041'},
+            {class: 'dark-shade-75', name: 'Dark Shade 75%', hex: '#1F2041'},
+            {class: 'dark-shade-50', name: 'Dark Shade 50%', hex: '#1F2041'},
+            {class: 'dark-shade-25', name: 'Dark Shade 25%', hex: '#1F2041'},
+            {class: 'dark-shade-5', name: 'Dark Shade 5%', hex: '#1F2041'},
+            {class: 'purple', name: 'Purple', hex: '#BC9CFF'},
+            {class: 'green', name: 'Green', hex: '#6FCF97'},
+        ];
+    each c in colors
+        +color(c.class, c.name, c.hex)(class='palette__color')

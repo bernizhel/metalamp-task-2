@@ -1,0 +1,15 @@
+.palette {
+    max-width: 300px;
+    width: 100%;
+    &__color {
+        margin: 20px 0;
+
+        &:first-child {
+            margin: 0 0 20px 0;
+        }
+
+        &:last-child {
+            margin: 20px 0 0 0;
+        }
+    }
+}

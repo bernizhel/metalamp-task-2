@@ -1,5 +1,6 @@
 mixin color(color, name, hex)
-    .color
+    .color(class=attributes.class)
         .color__display(class=color)
-        .color__name= name
-        .color__hex= hex
+        .color__text
+            .color__name= name
+            .color__hex= hex

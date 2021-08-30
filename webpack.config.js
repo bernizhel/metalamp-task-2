@@ -97,7 +97,7 @@ module.exports = {
         extensions: ['.js', '.json'],
         alias: {
             fonts: path.resolve(PATHS.source, 'fonts'),
-            img: path.resolve(PATHS.source, 'img'),
+            styles: path.resolve(PATHS.source, 'styles'),
             c: path.resolve(PATHS.common),
         },
     },
