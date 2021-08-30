@@ -1,24 +1,7 @@
 $WEIGHT_NORMAL: 400;
 $WEIGHT_BOLD: 700;
 
-@font-face {
-    font-family: 'Montserrat';
-    font-weight: $WEIGHT_NORMAL;
-    src: url('fonts/montserrat-regular.woff') format('woff'),
-        url('fonts/montserrat-regular.ttf') format('truetype'),
-        url('fonts/montserrat-regular.svg') format('svg');
-}
-
-@font-face {
-    font-family: 'Montserrat';
-    font-weight: $WEIGHT_BOLD;
-    src: url('fonts/montserrat-bold.woff') format('woff'),
-        url('fonts/montserrat-bold.ttf') format('truetype'),
-        url('fonts/montserrat-bold.svg') format('svg');
-}
-
 @mixin montserrat($weight) {
     font-family: 'Montserrat', sans-serif;
     font-weight: $weight;
-    font-style: normal;
 }

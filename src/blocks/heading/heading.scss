@@ -1,0 +1,9 @@
+@import 'styles/fonts';
+@import 'styles/colors';
+
+.heading {
+    @include montserrat($WEIGHT_BOLD);
+    color: getColor('dark-shade-100');
+    font-size: 26px;
+    line-height: 29px;
+}

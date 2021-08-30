@@ -1,2 +1,2 @@
-import 'c/color/color.scss';
+import 'blocks/color';
 import './palette.scss';

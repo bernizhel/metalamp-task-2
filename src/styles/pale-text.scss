@@ -1,0 +1,8 @@
+@use 'sass:map';
+@import './fonts';
+@import './colors';
+
+.pale-text {
+    font-weight: $WEIGHT_NORMAL;
+    color: map.get($colors, 'dark-shade-25');
+}

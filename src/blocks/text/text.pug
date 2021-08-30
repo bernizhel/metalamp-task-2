@@ -1,0 +1,19 @@
+mixin text(type, title, example)
+    .text(class=attributes.class)
+        case type
+            when 'heading'
+                include /heading/heading
+                +heading(title)(class='pale-text')
+                +heading(example)
+            when 'subheading'
+                include /subheading/subheading
+                +subheading(title)(class='pale-text')
+                +subheading(example)
+            when 'label'
+                include /label/label
+                +label(title)(class='pale-text')
+                +label(example)
+            when 'paragraph'
+                include /paragraph/paragraph
+                +paragraph(title)(class='pale-text')
+                +paragraph(example)

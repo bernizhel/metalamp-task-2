@@ -1,0 +1,10 @@
+@import 'styles/fonts';
+@import 'styles/colors';
+
+.label {
+    @include montserrat($WEIGHT_BOLD);
+    color: getColor('dark-shade-100');
+    font-size: 12px;
+    line-height: 15px;
+    text-transform: uppercase;
+}

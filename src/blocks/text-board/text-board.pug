@@ -1,0 +1,11 @@
+.text-board
+    include /text/text
+    -
+        const data = [
+            {type: 'heading', title: 'H1', example: 'This one is the sub-section or widget title'},
+            {type: 'subheading', title: 'H2', example: 'Next one is the item title inside widgets'},
+            {type: 'label', title: 'H3', example: 'This is a label or CTA text'},
+            {type: 'paragraph', title: 'Body', example: 'This is the body text which is used for most of the design, like paragraphs, lists, etc.'},
+        ];
+    each line in data
+        +text(line.type, line.title, line.example)(class='text-board__text')

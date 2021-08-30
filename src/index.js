@@ -7,4 +7,5 @@ import 'normalize.css';
 import './styles/globals.scss';
 
 // components' styles
-import 'c/palette';
+import 'blocks/palette';
+import 'blocks/text-board';

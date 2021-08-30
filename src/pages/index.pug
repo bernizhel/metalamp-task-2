@@ -1,9 +1,11 @@
 extends ../layouts/ui-kit
 
-append head
-    +head('Landing Page',
+include ../includes/head
+block head
+    +headTag('Landing Page',
         'something about a landing page',
         'landing', 'page', 'lorem')
 
 block content
     include /palette/palette
+    include /text-board/text-board

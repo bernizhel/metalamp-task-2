@@ -8,7 +8,7 @@ const ESLintWebpackPlugin = require('eslint-webpack-plugin');
 const PATHS = {
     source: path.resolve(__dirname, 'src'),
     output: path.resolve(__dirname, 'public'),
-    common: path.resolve(__dirname, 'src', 'blocks'),
+    blocks: path.resolve(__dirname, 'src', 'blocks'),
 };
 
 function getPugFiles(pugPath) {
@@ -98,7 +98,7 @@ module.exports = {
         alias: {
             fonts: path.resolve(PATHS.source, 'fonts'),
             styles: path.resolve(PATHS.source, 'styles'),
-            c: path.resolve(PATHS.common),
+            blocks: path.resolve(PATHS.blocks),
         },
     },
     optimization: {
@@ -131,7 +131,7 @@ module.exports = {
                         loader: 'pug-loader',
                         options: {
                             pretty: isDev,
-                            root: PATHS.common,
+                            root: PATHS.blocks,
                         },
                     },
                 ],
