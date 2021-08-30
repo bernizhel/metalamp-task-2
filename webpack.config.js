@@ -8,7 +8,7 @@ const ESLintWebpackPlugin = require('eslint-webpack-plugin');
 const PATHS = {
     source: path.resolve(__dirname, 'src'),
     output: path.resolve(__dirname, 'public'),
-    common: path.resolve(__dirname, 'src', 'common.blocks'),
+    common: path.resolve(__dirname, 'src', 'blocks'),
 };
 
 function getPugFiles(pugPath) {

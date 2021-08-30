@@ -6,16 +6,4 @@ append head
         'landing', 'page', 'lorem')
 
 block content
-    -
-        const colors = [
-            {color: 'rgba(31, 32, 65, 1)', text: 'Dark Shade 100%', hex: '#1F2041'},
-            {color: 'rgba(31, 32, 65, 0.75)', text: 'Dark Shade 75%', hex: '#1F2041'},
-            {color: 'rgba(31, 32, 65, 0.5)', text: 'Dark Shade 50%', hex: '#1F2041'},
-            {color: 'rgba(31, 32, 65, 0.25)', text: 'Dark Shade 25%', hex: '#1F2041'},
-            {color: 'rgba(31, 32, 65, 0.05)', text: 'Dark Shade 5%', hex: '#1F2041'},
-            {color: '#bc9cff', text: 'Purple', hex: '#BC9CFF'},
-            {color: '#6fcf97', text: 'Green', hex: '#6FCF97'},
-        ];
-    include /color/color
-    each color in colors
-        +color(color.color, color.text, color.hex)
+    include /palette/palette

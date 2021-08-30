@@ -4,6 +4,7 @@ import 'regenerator-runtime/runtime';
 
 // globals
 import 'normalize.css';
+import './styles/colors.scss';
 import './styles/globals.scss';
 
 // components' styles
