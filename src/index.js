@@ -7,5 +7,5 @@ import 'normalize.css';
 import './styles/globals.scss';
 
 // components' styles
-import 'blocks/palette';
-import 'blocks/text-board';
+import 'blocks/logo-line';
+import 'blocks/colors-and-type';

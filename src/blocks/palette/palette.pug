@@ -1,14 +1,15 @@
-.palette
-    include /color/color
-    -
-        const colors = [
-            {class: 'dark-shade-100-bg', name: 'Dark Shade 100%', hex: '#1F2041'},
-            {class: 'dark-shade-75-bg', name: 'Dark Shade 75%', hex: '#1F2041'},
-            {class: 'dark-shade-50-bg', name: 'Dark Shade 50%', hex: '#1F2041'},
-            {class: 'dark-shade-25-bg', name: 'Dark Shade 25%', hex: '#1F2041'},
-            {class: 'dark-shade-5-bg', name: 'Dark Shade 5%', hex: '#1F2041'},
-            {class: 'purple-bg', name: 'Purple', hex: '#BC9CFF'},
-            {class: 'green-bg', name: 'Green', hex: '#6FCF97'},
-        ];
-    each c in colors
-        +color(c.class, c.name, c.hex)(class='palette__color')
+mixin palette()
+    .palette(class=attributes.class)
+        include /color/color
+        -
+            const colors = [
+                {class: 'dark-shade-100-bg', name: 'Dark Shade 100%', hex: '#1F2041'},
+                {class: 'dark-shade-75-bg', name: 'Dark Shade 75%', hex: '#1F2041'},
+                {class: 'dark-shade-50-bg', name: 'Dark Shade 50%', hex: '#1F2041'},
+                {class: 'dark-shade-25-bg', name: 'Dark Shade 25%', hex: '#1F2041'},
+                {class: 'dark-shade-5-bg', name: 'Dark Shade 5%', hex: '#1F2041'},
+                {class: 'purple-bg', name: 'Purple', hex: '#BC9CFF'},
+                {class: 'green-bg', name: 'Green', hex: '#6FCF97'},
+            ];
+        each c in colors
+            +color(c.class, c.name, c.hex)(class='palette__color')

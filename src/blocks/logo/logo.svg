@@ -1,0 +1,9 @@
+<svg class='logo' xmlns='http://www.w3.org/2000/svg' version='1.1' width='48' height='48'>
+    <g class='logo__figure'>
+        <circle cx='24' cy='24' r='24' />
+        <g class='logo__curve'>
+            <path d='M 11 18 Q 24.5 18.5, 25 32' />
+            <path d='M 36 18 Q 30 19, 27 24' />
+        </g>
+    </g>
+</svg>

@@ -1,4 +1,14 @@
 .text-board {
     &__text {
+        margin: 50px 0 50px 0;
+        max-width: 450px;
+
+        &:first-child {
+            margin: 0 0 50px 0;
+        }
+
+        &:last-child {
+            margin: 50px 0 0 0;
+        }
     }
 }

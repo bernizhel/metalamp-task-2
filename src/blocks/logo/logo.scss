@@ -1,0 +1,17 @@
+@import 'styles/colors';
+
+$STROKE_WIDTH: 3px;
+
+.logo {
+    overflow: visible;
+
+    &__figure {
+        stroke: getColor('dark-shade-25');
+        stroke-width: $STROKE_WIDTH;
+        fill: transparent;
+    }
+
+    &__curve {
+        stroke-linecap: round;
+    }
+}

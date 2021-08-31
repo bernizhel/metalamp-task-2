@@ -1,2 +1,9 @@
 .text {
+    display: flex;
+    gap: 30px;
+
+    &__title {
+        min-width: 40px;
+        text-align: right;
+    }
 }

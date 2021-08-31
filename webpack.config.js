@@ -67,6 +67,7 @@ const pluginsInvolvment = () => {
                 new HTMLWebpackPlugin({
                     template: page,
                     filename: path.basename(page).replace(/\.pug$/, '.html'),
+                    favicon: './favicon.ico',
                 }),
         ),
         new MiniCSSExtractPlugin({
@@ -145,7 +146,7 @@ module.exports = {
                 use: CSSLoaders('sass-loader'),
             },
             {
-                test: /\.(jp[e]?g|png|gif|[ot]tf|woff[2]?|eot)$/i,
+                test: /\.(jp[e]?g|png|gif|[ot]tf|woff[2]?|eot|ico)$/i,
                 type: 'asset/resource',
             },
             {
