@@ -1,3 +1,6 @@
+@use 'styles/fonts' as fonts;
+@use 'styles/colors' as colors;
+
 .text {
     display: flex;
     gap: 30px;
@@ -5,5 +8,10 @@
     &__title {
         min-width: 40px;
         text-align: right;
+
+        &_pale {
+            font-weight: fonts.$WEIGHT_NORMAL;
+            color: colors.getColor('dark-shade-25');
+        }
     }
 }

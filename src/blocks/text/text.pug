@@ -1,19 +1,20 @@
+include /heading/heading
+include /subheading/subheading
+include /label/label
+include /paragraph/paragraph
+
 mixin text(type, title, example)
     .text(class=attributes.class)
         case type
             when 'heading'
-                include /heading/heading
-                +heading(title)(class=['pale-text', 'text__title'])
+                +heading(title)(class=['text__title', 'text__title_pale'])
                 +heading(example)
             when 'subheading'
-                include /subheading/subheading
-                +subheading(title)(class=['pale-text', 'text__title'])
+                +subheading(title)(class=['text__title', 'text__title_pale'])
                 +subheading(example)
             when 'label'
-                include /label/label
-                +label(title)(class=['pale-text', 'text__title'])
+                +label(title)(class=['text__title', 'text__title_pale'])
                 +label(example)
             when 'paragraph'
-                include /paragraph/paragraph
-                +paragraph(title)(class=['pale-text', 'text__title'])
+                +paragraph(title)(class=['text__title', 'text__title_pale'])
                 +paragraph(example)

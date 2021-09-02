@@ -1,8 +1,7 @@
 $PADDING: 30px;
-$LOGO_SIZE: 48px;
 
 .logo-line {
-    min-width: 100%;
-    min-height: $LOGO_SIZE + $PADDING * 2;
-    padding: 30px;
+    position: absolute;
+    top: $PADDING;
+    left: $PADDING;
 }

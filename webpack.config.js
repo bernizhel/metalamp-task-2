@@ -67,7 +67,7 @@ const pluginsInvolvment = () => {
                 new HTMLWebpackPlugin({
                     template: page,
                     filename: path.basename(page).replace(/\.pug$/, '.html'),
-                    favicon: './favicon.ico',
+                    favicon: './favicon.png',
                 }),
         ),
         new MiniCSSExtractPlugin({

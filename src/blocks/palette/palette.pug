@@ -3,13 +3,13 @@ mixin palette()
         include /color/color
         -
             const colors = [
-                {class: 'dark-shade-100-bg', name: 'Dark Shade 100%', hex: '#1F2041'},
-                {class: 'dark-shade-75-bg', name: 'Dark Shade 75%', hex: '#1F2041'},
-                {class: 'dark-shade-50-bg', name: 'Dark Shade 50%', hex: '#1F2041'},
-                {class: 'dark-shade-25-bg', name: 'Dark Shade 25%', hex: '#1F2041'},
-                {class: 'dark-shade-5-bg', name: 'Dark Shade 5%', hex: '#1F2041'},
-                {class: 'purple-bg', name: 'Purple', hex: '#BC9CFF'},
-                {class: 'green-bg', name: 'Green', hex: '#6FCF97'},
+                {class: 'color__display_color_dark-shade-100', name: 'Dark Shade 100%', hex: '#1F2041'},
+                {class: 'color__display_color_dark-shade-75', name: 'Dark Shade 75%', hex: '#1F2041'},
+                {class: 'color__display_color_dark-shade-50', name: 'Dark Shade 50%', hex: '#1F2041'},
+                {class: 'color__display_color_dark-shade-25', name: 'Dark Shade 25%', hex: '#1F2041'},
+                {class: 'color__display_color_dark-shade-5', name: 'Dark Shade 5%', hex: '#1F2041'},
+                {class: 'color__display_color_purple', name: 'Purple', hex: '#BC9CFF'},
+                {class: 'color__display_color_green', name: 'Green', hex: '#6FCF97'},
             ];
         each c in colors
             +color(c.class, c.name, c.hex)(class='palette__color')

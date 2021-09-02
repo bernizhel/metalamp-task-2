@@ -1,9 +1,9 @@
-@import 'styles/fonts';
-@import 'styles/colors';
+@use 'styles/fonts' as fonts;
+@use 'styles/colors' as colors;
 
 .label {
-    @include montserrat($WEIGHT_BOLD);
-    color: getColor('dark-shade-100');
+    @include fonts.montserrat(fonts.$WEIGHT_BOLD);
+    color: colors.getColor('dark-shade-100');
     font-size: 12px;
     line-height: 15px;
     text-transform: uppercase;

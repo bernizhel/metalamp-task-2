@@ -1,9 +1,9 @@
-@import 'styles/fonts';
-@import 'styles/colors';
+@use 'styles/fonts' as fonts;
+@use 'styles/colors' as colors;
 
 .paragraph {
-    @include montserrat($WEIGHT_NORMAL);
-    color: getColor('dark-shade-75');
+    @include fonts.montserrat(fonts.$WEIGHT_NORMAL);
+    color: colors.getColor('dark-shade-75');
     font-size: 14px;
     line-height: 24px;
 }

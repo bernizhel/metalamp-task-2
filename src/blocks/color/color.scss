@@ -1,8 +1,7 @@
-@use 'sass:map';
-@import 'styles/fonts';
-@import 'styles/colors';
+@use 'styles/fonts' as fonts;
+@use 'styles/colors' as colors;
 
-$display-size: 70px;
+$displaySize: 70px;
 
 .color {
     display: flex;
@@ -11,18 +10,24 @@ $display-size: 70px;
     width: 100%;
 
     &__display {
-        min-width: $display-size;
-        min-height: $display-size;
+        min-width: $displaySize;
+        min-height: $displaySize;
         border-radius: 6px;
+
+        @each $name, $color in colors.$colors {
+            &_color_#{'#{$name}'} {
+                background-color: $color;
+            }
+        }
     }
 
     &__text {
-        color: map.get($colors, 'dark-shade-100');
+        color: colors.getColor('dark-shade-100');
         font-size: 19px;
         line-height: 28px;
     }
 
     &__name {
-        font-weight: $WEIGHT_BOLD;
+        font-weight: fonts.$WEIGHT_BOLD;
     }
 }

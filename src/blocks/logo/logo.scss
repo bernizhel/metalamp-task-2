@@ -1,17 +1,9 @@
-@import 'styles/colors';
-
-$STROKE_WIDTH: 3px;
+@use 'styles/colors' as colors;
 
 .logo {
     overflow: visible;
 
     &__figure {
-        stroke: getColor('dark-shade-25');
-        stroke-width: $STROKE_WIDTH;
-        fill: transparent;
-    }
-
-    &__curve {
-        stroke-linecap: round;
+        fill: colors.getColor('dark-shade-25');
     }
 }

@@ -1,7 +1,7 @@
 $WEIGHT_NORMAL: 400;
 $WEIGHT_BOLD: 700;
 
-@mixin montserrat($weight) {
+@mixin montserrat($weight: $WEIGHT_NORMAL) {
     font-family: 'Montserrat', sans-serif;
     font-weight: $weight;
 }
