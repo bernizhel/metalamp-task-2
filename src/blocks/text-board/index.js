@@ -1,2 +1,2 @@
-import 'blocks/text';
+import 'blocks/text-example';
 import './text-board.scss';

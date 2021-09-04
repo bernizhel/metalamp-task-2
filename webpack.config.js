@@ -91,7 +91,7 @@ module.exports = {
     output: {
         filename: filename('js'),
         path: PATHS.output,
-        clean: true,
+        clean: !isDev,
         assetModuleFilename: '[contenthash][ext]',
     },
     resolve: {
