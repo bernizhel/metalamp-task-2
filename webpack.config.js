@@ -11,6 +11,13 @@ const PATHS = {
     blocks: path.resolve(__dirname, 'src', 'blocks'),
 };
 
+const isDev =
+    process.env.NODE_ENV === 'development' ||
+    process.env.NODE_ENV === undefined;
+
+const filename = (ext = '[ext]') =>
+    !isDev ? `[name].[contenthash].${ext}` : `[name].${ext}`;
+
 function getPugFiles(pugPath) {
     let pugFiles = [];
     fs.readdirSync(pugPath, 'utf-8').forEach((subpath) => {
@@ -28,10 +35,6 @@ function getPugFiles(pugPath) {
 }
 
 const PAGES = getPugFiles(path.resolve(PATHS.source, 'pages'));
-
-const isDev =
-    process.env.NODE_ENV === 'development' ||
-    process.env.NODE_ENV === undefined;
 
 const postcssPlugins = () => {
     const plugins = [['autoprefixer']];
@@ -79,9 +82,6 @@ const pluginsInvolvment = () => {
     }
     return plugins;
 };
-
-const filename = (ext = '[ext]') =>
-    !isDev ? `[name].[contenthash].${ext}` : `[name].${ext}`;
 
 module.exports = {
     context: PATHS.source,

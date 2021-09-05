@@ -1,7 +1,7 @@
 include /color/color
 
 mixin palette()
-    .palette(class=attributes.class)
+    section.palette(class=attributes.class)
         -
             const colors = [
                 {class: 'dark-shade-100', name: 'Dark Shade 100%', hex: '#1F2041'},
@@ -12,5 +12,5 @@ mixin palette()
                 {class: 'purple', name: 'Purple', hex: '#BC9CFF'},
                 {class: 'green', name: 'Green', hex: '#6FCF97'},
             ];
-        each c in colors
-            +color(`color__display_color_${c.class}`, c.name, c.hex)(class='palette__color')
+        each color in colors
+            +color(`color__display_color_${color.class}`, color.name, color.hex)(class='palette__color')

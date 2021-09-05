@@ -1,6 +1,6 @@
 mixin color(color, name, hex)
-    .color(class=attributes.class)
+    article.color(class=attributes.class)
         .color__display(class=color)
         .color__text
-            .color__name= name
-            .color__hex= hex
+            h3.color__name= name
+            p.color__hex= hex
