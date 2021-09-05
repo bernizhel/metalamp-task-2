@@ -1,3 +1,6 @@
+$BG_LIGHT: #fff;
+$BG_SHADE: #e5e5e5;
+
 $colors: (
     'dark-shade-100': #1f2041,
     'dark-shade-75': rgba(31, 32, 65, 0.75),
@@ -11,6 +14,3 @@ $colors: (
 @function getColor($colorName) {
     @return map-get($colors, $colorName);
 }
-
-$BG_LIGHT: #fff;
-$BG_SHADE: #e5e5e5;

@@ -2,7 +2,7 @@
 @use 'styles/colors' as colors;
 
 .text {
-    @include fonts.montserrat(fonts.$WEIGHT_NORMAL);
+    @include fonts.montserrat();
     color: colors.getColor('dark-shade-100');
 
     &_type {

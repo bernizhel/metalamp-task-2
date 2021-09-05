@@ -1,7 +1,7 @@
 @use 'styles/fonts' as fonts;
 @use 'styles/colors' as colors;
 
-$displaySize: 70px;
+$DISPLAY_SIZE: 70px;
 
 .color {
     display: flex;
@@ -10,8 +10,8 @@ $displaySize: 70px;
     width: 100%;
 
     &__display {
-        min-width: $displaySize;
-        min-height: $displaySize;
+        min-width: $DISPLAY_SIZE;
+        min-height: $DISPLAY_SIZE;
         border-radius: 6px;
 
         @each $name, $color in colors.$colors {

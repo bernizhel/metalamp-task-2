@@ -125,9 +125,6 @@ module.exports = {
             {
                 test: /\.pug$/i,
                 use: [
-                    // "If there is no way for un-trusted input to be passed to pug as the pretty option,
-                    // e.g. if you compile templates in advance before applying user input to them, you do not need to upgrade."
-                    // from https://www.npmjs.com/advisories/1643
                     {
                         loader: 'pug-loader',
                         options: {
