@@ -1,12 +1,6 @@
-include /heading/heading
-include /subheading/subheading
-include /label/label
-include /paragraph/paragraph
+include /text/text
 
-mixin text(type, title, example)
-    .text(class=attributes.class)
-        +text(title)(class=['text-example__title', 'text-example__title_pale'])
-        +text(example)(class=['text-example__'])
-            when 'paragraph'
-                +paragraph(title)(class=['text__title', 'text__title_pale'])
-                +paragraph(example)
+mixin text-example(type, title, example)
+    .text-example(class=attributes.class)
+        +text(title)(class=[type, 'text_pale', 'text-example__title'])
+        +text(example)(class=type)

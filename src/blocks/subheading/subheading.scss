@@ -1,9 +1,0 @@
-@use 'styles/fonts' as fonts;
-@use 'styles/colors' as colors;
-
-.subheading {
-    @include fonts.montserrat(fonts.$WEIGHT_BOLD);
-    color: colors.getColor('dark-shade-100');
-    font-size: 19px;
-    line-height: 23px;
-}
