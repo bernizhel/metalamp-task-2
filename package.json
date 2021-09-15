@@ -22,7 +22,8 @@
     "homepage": "https://github.com/bernizhel/metalamp-task-2#readme",
     "scripts": {
         "start": "cross-env NODE_ENV=development webpack serve --mode development",
-        "build": "cross-env NODE_ENV=production webpack --mode production"
+        "build": "cross-env NODE_ENV=production webpack --mode production",
+        "deploy": "git subtree push origin gh-pages"
     },
     "devDependencies": {
         "@babel/core": "^7.15.0",

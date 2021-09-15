@@ -9,3 +9,4 @@ import './styles/globals.scss';
 // components' styles
 import 'blocks/logo-line';
 import 'blocks/colors-and-type';
+import 'blocks/form-elements';
