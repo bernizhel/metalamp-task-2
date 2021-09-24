@@ -1,2 +1,2 @@
-import 'blocks/form-elements-block';
+import 'blocks/form-elements-compound';
 import './form-elements.scss';

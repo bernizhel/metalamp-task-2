@@ -1,4 +1,18 @@
-include /form-elements-block/form-elements-block
+include /form-elements-compound/form-elements-compound
+include /labeled-input/labeled-input
 
-.form-elements
-    +form-elements-block('hello')
+main.form-elements
+    +form-elements-compound()(class='form-elements__compound')
+        +labeled-input('1 label', 'sublabel')
+    +form-elements-compound()(class='form-elements__compound')
+        +labeled-input('2 label', 'sublabel')
+    +form-elements-compound()(class='form-elements__compound')
+        +labeled-input('3 label', 'sublabel')
+    +form-elements-compound()(class='form-elements__compound')
+        +labeled-input('4 label', 'sublabel')
+    +form-elements-compound()(class='form-elements__compound')
+        +labeled-input('5 label', 'sublabel')
+    +form-elements-compound()(class='form-elements__compound')
+        +labeled-input('6 label', 'sublabel')
+    +form-elements-compound()(class='form-elements__compound')
+        +labeled-input('7 label', 'sublabel')

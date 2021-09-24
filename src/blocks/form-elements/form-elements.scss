@@ -1,5 +1,12 @@
-@use 'styles/colors' as colors;
-
 .form-elements {
-    background-color: colors.$BG_LIGHT;
+    padding: 140px;
+    padding-bottom: 130px;
+    display: grid;
+    row-gap: 100px;
+    column-gap: 70px;
+    grid-template-columns: repeat(3, 1fr);
+
+    &__compound {
+        width: 10px;
+    }
 }
