@@ -1,17 +1,16 @@
+-
+    const pages = [
+        'colors-and-type',
+        'form-elements',
+        'cards',
+        'headers-and-footers',
+        'landing',
+        'search-room',
+        'room-details',
+        'registration',
+    ];
+
 ul
-    li
-        a(href='colors-and-type.html') colors-and-type
-    li
-        a(href='form-elements.html') form-elements
-    li
-        a(href='cards.html') cards
-    li
-        a(href='headers-and-footers.html') headers-and-footers
-    li
-        a(href='landing.html') landing
-    li
-        a(href='search-room.html') search-room
-    li
-        a(href='room-details.html') room-details
-    li
-        a(href='registration.html') registration
+    each page in pages
+        li
+            a(href=page + '.html')= page
