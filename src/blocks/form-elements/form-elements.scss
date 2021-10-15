@@ -2,11 +2,17 @@
     padding: 140px;
     padding-bottom: 130px;
     display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: start;
+    justify-items: start;
     row-gap: 100px;
-    column-gap: 70px;
-    grid-template-columns: repeat(3, 1fr);
+    column-gap: 126px;
 
     &__compound {
-        width: 10px;
+        width: 300px;
+
+        &:last-child {
+            margin-top: -100px;
+        }
     }
 }
