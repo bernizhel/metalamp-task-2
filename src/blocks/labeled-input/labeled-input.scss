@@ -1,3 +1,12 @@
 .labeled-input {
-    //
+    &__legend {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__description {
+        flex-shrink: 1;
+        text-align: right;
+    }
 }
