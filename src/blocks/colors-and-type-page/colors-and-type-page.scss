@@ -1,13 +1,7 @@
 @use 'styles/colors' as colors;
 @use 'styles/media' as media;
 
-.colors-and-type {
-    /*
-        To stretch the block on the whole page and
-        then stretch it corresponding to its content size
-        I use "min-height: 100%;" here and "min-height: 100%" with "height: 100%"
-        at globals.scss applied to html and body tags
-    */
+.colors-and-type-page {
     min-height: 100%;
     padding: 150px;
     display: flex;

@@ -5,8 +5,15 @@
         justify-content: space-between;
     }
 
+    &__name {
+    }
+
     &__description {
         flex-shrink: 1;
         text-align: right;
+    }
+
+    &__form-block {
+        display: flex;
     }
 }

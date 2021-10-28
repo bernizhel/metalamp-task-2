@@ -1,3 +1,10 @@
 .form-elements-compound {
-    //
+    display: flex;
+    flex-wrap: wrap;
+
+    &_place {
+        &_first-column {
+            width: 320px;
+        }
+    }
 }

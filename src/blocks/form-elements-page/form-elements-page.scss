@@ -1,0 +1,11 @@
+@use 'styles/colors' as colors;
+
+.form-elements-page {
+    min-height: 100%;
+    padding: 140px;
+    padding-bottom: 130px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: colors.$BG_LIGHT;
+}

@@ -6,5 +6,6 @@ mixin labeled-input(label, sublabel)
             .labeled-input__name
                 +text(label)(class='text_type_label')
             .labeled-input__description
-                +text(sublabel)(class=['text_type_label', 'text_pale'])
-        block
+                +text(sublabel)(class=['text_type_label', 'text_pale_50'])
+        .labeled-input__form-block
+            block
