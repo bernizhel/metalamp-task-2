@@ -1,0 +1,20 @@
+@use 'styles/colors' as colors;
+
+.text-field {
+    width: 320px;
+    height: 44px;
+    border: 1px solid colors.getColor('dark-shade-25');
+    border-radius: 4px;
+    padding: 0 15px;
+    color: colors.getColor('dark-shade-75');
+
+    &::placeholder {
+        color: colors.getColor('dark-shade-25');
+    }
+
+    &:hover,
+    &:focus {
+        color: colors.getColor('dark-shade-75');
+        border-color: colors.getColor('dark-shade-75');
+    }
+}

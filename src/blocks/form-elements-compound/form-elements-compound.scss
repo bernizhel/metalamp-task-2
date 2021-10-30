@@ -2,9 +2,17 @@
     display: flex;
     flex-wrap: wrap;
 
-    &_place {
-        &_first-column {
-            width: 320px;
+    &_location_1 {
+        & > *:nth-child(-n + 4) {
+            margin-bottom: 20px;
+        }
+
+        & > *:nth-child(n + 5) {
+            margin-top: 40px;
+        }
+
+        & > *:nth-child(5) {
+            margin-right: 20px;
         }
     }
 }

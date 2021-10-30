@@ -3,9 +3,7 @@
         width: 100%;
         display: flex;
         justify-content: space-between;
-    }
-
-    &__name {
+        margin-bottom: 5px;
     }
 
     &__description {
@@ -15,5 +13,6 @@
 
     &__form-block {
         display: flex;
+        flex-wrap: wrap;
     }
 }

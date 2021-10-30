@@ -1,14 +1,18 @@
+@use 'styles/media' as media;
+
 .form-elements-all {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 320px 712px;
     align-items: start;
     justify-items: start;
     row-gap: 100px;
-    column-gap: 126px;
+    column-gap: max(10%, 126px);
 
-    &__compound {
-        &:last-child {
-            // margin-top: -100px;
-        }
+    @media screen and (max-width: media.$DESKTOP_MEDIUM) {
+        grid-template-columns: repeat(2, 320px);
+    }
+
+    @media screen and (max-width: media.$DESKTOP_SMALL) {
+        grid-template-columns: 320px;
     }
 }

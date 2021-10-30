@@ -3,9 +3,7 @@ include /text/text
 mixin labeled-input(label, sublabel)
     fieldset.labeled-input(class=attributes.class)
         legend.labeled-input__legend
-            .labeled-input__name
-                +text(label)(class='text_type_label')
-            .labeled-input__description
-                +text(sublabel)(class=['text_type_label', 'text_pale_50'])
+            +text(label)(class=['text_type_label'])
+            +text(sublabel)(class=['labeled-input__description', 'text_type_label', 'text_pale_50'])
         .labeled-input__form-block
             block

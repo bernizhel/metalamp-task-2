@@ -1,31 +1,39 @@
-include /form-elements-compound/form-elements-compound
+include /text-field/text-field
 include /labeled-input/labeled-input
+include /form-elements-compound/form-elements-compound
 
 mixin form-elements-all()
     article.form-elements-all(class=attributes.class)
-        +form-elements-compound()(class=['form-elements__compound', 'form-elements-compound_place_first-column'])
+        +form-elements-compound()(class=['form-elements-compound_location_1'])
             +labeled-input('text field', 'default')
-                input(type='text')
+                +text-field('email', 'Email')
             +labeled-input('text field', 'hover / focus')
-                input(type='text')
+                +text-field('text', 'Text', 'This is pretty awesome')
             +labeled-input('dropdown')
-                input(type='text')
+                select
+                    option(selected hidden) some text 1
+                    option lorem ipsum 2
+                    option bar foo 3
             +labeled-input('masked text field')
                 input(type='text')
             +labeled-input('date dropdown')
-                input(type='text')
+                select
+                    option so?
+                    option now
             +labeled-input('date dropdown')
-                input(type='text')
+                select
+                    option so?
+                    option now
             +labeled-input('filter date dropdown')
                 input(type='text')
             +labeled-input('subscription text field')
-                input(type='text')
-        +form-elements-compound()(class='form-elements__compound')
+                input(type='email')
+        +form-elements-compound()
             +labeled-input('text field', 'default')
                 input(type='text')
-        +form-elements-compound()(class='form-elements__compound')
+        +form-elements-compound()
             +labeled-input('text field', 'default')
                 input(type='text')
-        +form-elements-compound()(class='form-elements__compound')
+        +form-elements-compound()
             +labeled-input('text field', 'default')
                 input(type='text')
